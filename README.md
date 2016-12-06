@@ -3,6 +3,6 @@ C++ project - Polytech Paris-UPMC
 
 ## Ideas
 - Firebase, REST API
-- nlohmann/json, REST SDK
+- https://github.com/miloyip/rapidjson/, REST SDK
 - Qt, GUI
 
