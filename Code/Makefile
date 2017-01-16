@@ -1,6 +1,9 @@
 # Options de Compilation
 CC = g++
 CCFLAGS = -g
+#CCSETTING = --std=c++11 -w -lSDL2 -lSDL2_image -lSDL2_ttf # -lSDL  
+
+
 CCSETTINGPC = --std=c++11 -w -lSDL2 -lSDL2_image -lSDL2_ttf # -lSDL
 CCSETTINGMAC = --std=c++11 -w -framework SDL2 -framework SDL2_image -framework SDL2_ttf -DMAC
 
@@ -12,7 +15,7 @@ else
 endif
 
 # fichiers du projet
-SRC = point.cc window.cc candidate.cc database.cc chart.cc main.cc
+SRC = point.cc window.cc candidate.cc database.cc chart.cc button.cc main.cc
 OBJ = $(SRC:.cc=.o)
 EXEC = main.out
 

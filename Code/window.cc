@@ -103,7 +103,6 @@ void Window::draw_image(SDL_Texture* image, Point pos)
 }
 
 
-
 // update screen
 void Window::updateScreen()
 {
@@ -137,6 +136,27 @@ void Window::draw_text(std::string text, Point pos)
 	SDL_RenderCopy(_renderer, textTexture, NULL, &position);
 
 	SDL_FreeSurface(textSurface);
+}
+
+
+std::size_t Window::get_height()
+{
+	return _height;
+}
+
+std::size_t Window::get_width()
+{
+	return _width;
+}
+
+std::size_t Window::get_x_case()
+{
+	return _x_case;
+}
+
+std::size_t Window::get_y_case()
+{
+	return _y_case;
 }
 
 

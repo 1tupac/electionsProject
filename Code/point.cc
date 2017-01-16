@@ -4,7 +4,7 @@
 Point::Point( float x, float y) : 
 	_x(x),
 	_y(y)
-{}
+{;}
 
 float Point::get_x() const {
 	return _x;

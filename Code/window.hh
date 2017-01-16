@@ -1,21 +1,12 @@
 #pragma once
-
+#include <SDL2/SDL.h>
 #include <stdio.h>
 #include <iostream>
-#include "point.hh"
-#ifdef MAC
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_ttf/SDL_ttf.h>
-#else
-#include <SDL2/SDL.h>
+//#include <SDL/SDL.h>
 #include <SDL2/SDL_image.h>
+#include "point.hh"
 #include <SDL2/SDL_ttf.h>
-#endif
 
-//Screen dimension constants
-//const int SCREEN_WIDTH = 640;
-//const int SCREEN_HEIGHT = 480;
 
 
 class Window 
@@ -45,5 +36,14 @@ class Window
 	void draw_image(SDL_Texture*, Point pos);
 	void updateScreen();
 	void draw_text(std::string text, Point pos);
+	//void draw_button(SDL_Texture*, Button );
+
+	std::size_t get_height();
+	std::size_t get_width();
+	std::size_t get_x_case();
+	std::size_t get_y_case();
+
+
+
 };
 
