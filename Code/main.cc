@@ -22,10 +22,10 @@ int main( int argc, char* args[] )
 	db.statistic_candidates();
 
 	// load images
- 	SDL_Texture* image = db.loadSurface(&window, "Images/rectangle.png");
+ 	//SDL_Texture* image = db.loadSurface(&window, "Images/rectangle.png");
  	SDL_Texture* button = db.loadSurface(&window, "Images/button.png");
 
- 	Chart chart(&window, 40, 40, 300, 200);
+ 	Chart chart(&window, 100, 150, 500, 300);
 
  	Point p(10,10);
  	Point p1(0, 15);
@@ -70,9 +70,8 @@ int main( int argc, char* args[] )
  		SDL_SetRenderDrawColor(window._renderer, 230, 255, 255, SDL_ALPHA_OPAQUE);
  		SDL_RenderClear(window._renderer);
 
- 		window.draw_image(image, p);
- 		//SDL_RenderCopy(window._renderer, image, NULL, NULL);
- 		//SDL_RenderCopy(window._renderer, button, NULL, NULL);
+ 		//window.draw_image(image, p);
+
  		SDL_SetRenderDrawColor(window._renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
  		SDL_RenderDrawLine(window._renderer, 320, 200, 300, 0);
 
@@ -99,8 +98,8 @@ int main( int argc, char* args[] )
 		
 
 	//Free resources and close SDLs
-	SDL_DestroyTexture(image);
-	image = NULL;
+	//SDL_DestroyTexture(image);
+	//image = NULL;
 	SDL_DestroyTexture(button);
 	button = NULL;
 
