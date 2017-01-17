@@ -37,12 +37,11 @@ class Button: public Database
 		float get_button_x();
 		float get_button_y();
 		
-		///friend SDL_Texture* loadSurface(Window*, std::string);
+		// vote for candidat
+		virtual void vote();
 
 		//void draw_button(Window*, SDL_Texture* image);
 		void draw_button(Window* window, std::string filepath);
-
-
 
 	private:
 		//Top left position

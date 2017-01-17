@@ -16,6 +16,7 @@ class Candidate
 		~Candidate();
 
 		string get_name();
-		int get_score();
+		int get_score() const;
+		void set_score(int s);
 
 };
