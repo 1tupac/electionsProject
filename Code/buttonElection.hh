@@ -12,4 +12,4 @@ class ButtonElection: public Button
 		// vote for candidat
 		void vote();
 
-}
+};

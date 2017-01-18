@@ -76,9 +76,9 @@ int main( int argc, char* args[] )
  		SDL_RenderDrawLine(window._renderer, 320, 200, 300, 0);
 
 
-		std::array<int, 5> votes = {14, 25, 37, 67, 23};
- 		chart.plotBarChart(votes);
-
+		//std::array<int, 5> votes = {14, 25, 37, 67, 23};
+ 		//chart.plotBarChart(votes);
+		chart.plotBarChart(&db);
 
  		window.draw_text(str, p2);
 

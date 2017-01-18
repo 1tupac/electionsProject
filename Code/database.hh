@@ -18,9 +18,9 @@ class Database
 		//SDL_Surface* _image_button_reset;
 		//SDL_Surface* _image_text_start;
 
-		std::list<Candidate> _list_candidates; // list of all candidates
 
 		std::list<string> list_textOutput;
+		int _number_candidats;
 
 
 	public:
@@ -30,6 +30,11 @@ class Database
 
 		void statistic_candidates();
 
+		int get_highest_score() const; // returns highest score of all candidats
+
 		SDL_Texture* loadSurface(Window* screen, std::string filepath);
+
+		std::list<Candidate> _list_candidates; // list of all candidates
+		int get_number_candidats();
 
 };

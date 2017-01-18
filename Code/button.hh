@@ -34,11 +34,12 @@ class Button: public Database
 		void handleEvent( SDL_Event* e );
 	
 
+
 		float get_button_x();
 		float get_button_y();
 		
 		// vote for candidat
-		virtual void vote();
+		//virtual void vote();
 
 		//void draw_button(Window*, SDL_Texture* image);
 		void draw_button(Window* window, std::string filepath);
