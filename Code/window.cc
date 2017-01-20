@@ -141,12 +141,12 @@ void Window::draw_text(std::string text, Point pos)
 
 std::size_t Window::get_height()
 {
-	return _height;
+	return _height * _y_case;
 }
 
 std::size_t Window::get_width()
 {
-	return _width;
+	return _width * _x_case;
 }
 
 std::size_t Window::get_x_case()

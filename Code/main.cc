@@ -12,6 +12,7 @@
 #include "database.hh"
 #include "chart.hh"
 #include "button.hh"
+#include "text.hh"
 
 class Button;
 
@@ -43,6 +44,9 @@ int main( int argc, char* args[] )
 
  	Button bPie(750, 100);
  	Button bBar(750, 150);
+
+ 	Text textCenter(&window, "Font/funnyFont.ttf", 50);
+ 	Text textMoving(&window, 800, 250, "Font/funnyFont.ttf", 50);
 
 
  	// quit flag
@@ -93,7 +97,8 @@ int main( int argc, char* args[] )
  		bPie.draw_button(&window, "Images/pieChart.png");
  		bBar.draw_button(&window, "Images/barChart.png");
 
-
+ 		textCenter.displayCenteredText(40, "This is a test!");
+ 		textMoving.displayMovingText(2, "Moving text");
 
  		//SDL_RenderPresent(window._renderer);
  		window.updateScreen();

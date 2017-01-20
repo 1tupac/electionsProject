@@ -16,9 +16,11 @@
 class Text
 {
 public:
-	Text(Window *window, int x, int y, int w, int h, std::string font, int fontSize);
+	Text(Window *window, int x, int y, std::string font, int fontSize);
+	Text(Window *window, std::string font, int fontSize);
 	~Text();
 	void displayCenteredText(int y, std::string text);
+	void displayMovingText(int speed, std::string text);
 
 private:
 	Window* _window;
