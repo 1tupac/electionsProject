@@ -55,7 +55,7 @@ std::string Candidate::get_image_button_filePath() const
 int Candidate::check_event_click(SDL_Event* e) const
 {
 	// if the function handleEventElectionEl returns one, the user clicked on the button
-	if( _button_candidate.handleEventElectionEl( e ) == 1 )
+	if( _button_candidate.handleEvent( e ) == 1 )
 	{
 		int randomNumber = rand() % 3 + 1; // random number between 1,2,3
 		std::cout << "cluck: " << randomNumber << std::endl;

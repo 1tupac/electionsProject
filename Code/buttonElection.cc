@@ -9,8 +9,7 @@ ButtonElection::~ButtonElection()
 
 
 
-int ButtonElection::handleEventElectionEl( SDL_Event* e) const
-
+int ButtonElection::handleEvent( SDL_Event* e) const
 {
 
 	//If mouse event happened

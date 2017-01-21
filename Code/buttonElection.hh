@@ -15,7 +15,8 @@ class ButtonElection: public Button
 		~ButtonElection();
 
 		// handle event of buttonElection
-		int handleEventElectionEl( SDL_Event* e) const;
+		int handleEvent( SDL_Event* e) const;
+
 
 		void handleEventMode(SDL_Event* e);
 		

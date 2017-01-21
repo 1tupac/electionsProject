@@ -35,8 +35,9 @@ class Button//: public Database
 		~Button();
 
 
-		// Handles mouse event
-		void handleEvent( SDL_Event* e );
+		// Handles mouse event	
+		virtual int handleEvent( SDL_Event* e ) const {};
+
 	
 		// getters
 		float get_button_x() const;
