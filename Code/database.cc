@@ -40,7 +40,6 @@ void Database::create_candidates()
 	_number_candidats++;
 	_list_candidates.push_back(cand2);
 	_number_candidats++;
-
 	_list_candidates.push_back(cand3);
 	_number_candidats++;
 
@@ -112,7 +111,7 @@ SDL_Texture* Database::loadSurface(Window* screen, std::string filepath)
 
 
 
-void Database::draw_button(Window* window, std::string filepath, const Button &button)
+void Database::draw_button(Window* window, std::string filepath, const Button &button, int w, int h)
 {
 
 	button.set_button_image( loadSurface(window, filepath) );
@@ -121,8 +120,10 @@ void Database::draw_button(Window* window, std::string filepath, const Button &b
 	position.x = button.get_button_x();//*window->get_x_case();
    	position.y = button.get_button_y();//*window->get_y_case();
 
-   	position.w = BUTTON_WIDTH;
-   	position.h = BUTTON_HEIGHT;//image->h;
+   	//position.w = BUTTON_WIDTH;
+   	//position.h = BUTTON_HEIGHT;//image->h;
+	position.w = w;
+	position.h = h;
 
 	SDL_RenderCopy(window->_renderer, button.get_button_image(), NULL, &position);
 }

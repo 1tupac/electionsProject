@@ -40,7 +40,7 @@ class Database
 		int get_number_candidats();
 
 
-		void draw_button(Window* window, std::string filepath, const Button &button);
+		void draw_button(Window* window, std::string filepath, const Button &button, int w=BUTTON_WIDTH, int h=BUTTON_HEIGHT);
 
 		SDL_Texture* loadSurface(Window* screen, std::string filepath);
 

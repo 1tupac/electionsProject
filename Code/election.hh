@@ -33,8 +33,10 @@ class Election
  		Chart _chart; // bar chart
 	 	std::string _text_string;
 
-	 	//Button _bPie;
- 		Button _bBar;
+ 		Button _reset;
+ 		Button _regular;
+ 		Button _watch;
+ 		Button _random;
 
  		//Point _p_text; // point for text print
  		Text _textTuto;

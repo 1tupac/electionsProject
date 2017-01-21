@@ -86,6 +86,13 @@ int ButtonElection::handleEventElectionEl( SDL_Event* e) const
 	return 0;
 }
 
+void ButtonElection::handleEventMode(SDL_Event* e)
+{
+	if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
+	{
+		
+	}
+}
 
 
 ButtonElection ButtonElection::operator=(const ButtonElection& button) const

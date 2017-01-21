@@ -5,8 +5,10 @@
 Election::Election():
 	_window(25,40,21,21), //525 x 840
 	_chart(&(_window), 170, 150, 500, 300),
-	_bBar(Button(750, 150)),
-	//_p_text(Point(0.0,0.0)),
+	_reset(Button(20, 100)),
+	_regular(Button(20, 200)),
+	_watch(Button(20, 300)),
+	_random(Button(20, 400)),
 	_textTuto(Text(&(_window), 800, 250, "Font/Roboto-Thin.ttf", 20)),
 	_textMoving(Text(&_window, 900, 30, "Font/Roboto-Thin.ttf", 30))
 {
@@ -69,7 +71,7 @@ void Election::run()
  		}
 		
 
- 		SDL_SetRenderDrawColor(_window._renderer, 240, 240, 240, SDL_ALPHA_OPAQUE);
+ 		SDL_SetRenderDrawColor(_window._renderer, 250, 250, 250, SDL_ALPHA_OPAQUE);
  		SDL_RenderClear(_window._renderer);
 
 
@@ -83,8 +85,10 @@ void Election::run()
  		//_window.draw_text(_text_string, _p_text);
 
  		// draw buttons on the right side
-  		//_db.draw_button(&(_window), "Images/pieChart.png", _bPie);
- 		//_db.draw_button(&(_window), "Images/barChart.png", _bBar);
+ 		_db.draw_button(&(_window), "Images/graph.png", _reset, 70, 70);
+ 		_db.draw_button(&(_window), "Images/clock.png", _regular, 70, 70);
+ 		_db.draw_button(&(_window), "Images/rocket.png", _watch, 70, 70);
+ 		_db.draw_button(&(_window), "Images/brain.png", _random, 70, 70);
  		if (!clic)
  			_textTuto.displayText(700, 470, "< Clic to vote");
  		std::vector<std::string> movingMessages;

@@ -16,6 +16,8 @@ class ButtonElection: public Button
 
 		// handle event of buttonElection
 		int handleEventElectionEl( SDL_Event* e) const;
+
+		void handleEventMode(SDL_Event* e);
 		
 		// redirection of equal
 		ButtonElection operator=(const ButtonElection& button) const; 
