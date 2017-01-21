@@ -27,7 +27,7 @@ Button::~Button()
 void Button::handleEvent( SDL_Event* e )
 {
 	//If mouse event happened
-	std::cout << "e->type: " << e->type << std::endl;
+	//std::cout << "e->type: " << e->type << std::endl;
 	if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
 	{
 		//Get mouse position
@@ -37,8 +37,8 @@ void Button::handleEvent( SDL_Event* e )
 		//Check if mouse is in button
 		bool inside = true;
 
-		std::cout << "bx: " << _button_pos.get_x() << " by: " << _button_pos.get_y() << std::endl;
-		std::cout << "x: " << x << " y: " << y << std::endl;
+		//std::cout << "bx: " << _button_pos.get_x() << " by: " << _button_pos.get_y() << std::endl;
+		//std::cout << "x: " << x << " y: " << y << std::endl;
 
 
 		//Mouse is left of the button
@@ -96,39 +96,48 @@ void Button::handleEvent( SDL_Event* e )
 	
 
 // get button x
-float Button::get_button_x()
+float Button::get_button_x() const
 {
 	return _button_pos.get_x();
 }
 
 // get button y
-float Button::get_button_y()
+float Button::get_button_y() const
 {
 	return _button_pos.get_y();
 }
 
 
-
-// draw button
-//void Window::draw_button(SDL_Texture* image, Button b)
-void Button::draw_button(Window* window, std::string filepath)
+Point Button::get_button_pos() const
 {
-
-	// texture/image of button
-	//_button_image = loadSurface(screen, filepath);
-	//SDL_Texture* _button_image = load_button(&window, filepath);
-
-	_button_image = loadSurface(window, filepath);
-
-	SDL_Rect position;
-	position.x = get_button_x();//*window->get_x_case();
-   	position.y = get_button_y();//*window->get_y_case();
-   	//int w=50, h=50;
-   	//SDL_QueryTexture(image, NULL, NULL, &w, &h);
-   	position.w = BUTTON_WIDTH;
-   	position.h = BUTTON_HEIGHT;//image->h;
-
-	SDL_RenderCopy(window->_renderer, _button_image, NULL, &position);
+	return _button_pos;
 }
 
+
+ButtonSprite Button::get_mouse_current_sprite() const
+{
+	return _mouse_current_sprite;
+}
+
+
+
+void Button::set_button_image(SDL_Texture* image) const
+{
+	_button_image = image;
+}
+
+
+SDL_Texture* Button::get_button_image() const
+{
+	return _button_image;
+}
+
+
+Button Button::operator=(const Button& button) const
+{
+	_button_pos = button.get_button_pos();
+	_mouse_current_sprite = button.get_mouse_current_sprite();
+	_button_image = button.get_button_image();
+	return *this;
+}
 
