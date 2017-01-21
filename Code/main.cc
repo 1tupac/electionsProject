@@ -13,6 +13,7 @@
 #include "chart.hh"
 #include "button.hh"
 #include "text.hh"
+#include "election.hh"
 
 class Button;
 
@@ -20,8 +21,9 @@ class Button;
 int main( int argc, char* args[] )
 {
 
-	//Window window(65,36,21,21); //600*360
-
+	Election e;
+	e.run();
+	/*
 	Window window(25,40,21,21); //525 x 840
 
 	// test database candidates
@@ -106,7 +108,7 @@ int main( int argc, char* args[] )
 
  		//window.updateScreen();
 
-		SDL_Delay( 1000 );
+		SDL_Delay( 1 );
  	}
 		
 
@@ -115,7 +117,7 @@ int main( int argc, char* args[] )
 	//image = NULL;
 	SDL_DestroyTexture(button);
 	button = NULL;
-
+	*/
 
 
 	return 0;

@@ -15,7 +15,7 @@ else
 endif
 
 # fichiers du projet
-SRC = point.cc window.cc candidate.cc database.cc chart.cc button.cc buttonElection.cc text.cc main.cc
+SRC = point.cc window.cc candidate.cc database.cc chart.cc button.cc buttonElection.cc text.cc election.cc main.cc
 OBJ = $(SRC:.cc=.o)
 EXEC = main.out
 
