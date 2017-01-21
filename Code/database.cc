@@ -4,7 +4,11 @@
 Database::Database()
 {
 		_number_candidats=0;
+		_list_button_file.push_back("Image/green.png");
+		_list_button_file.push_back("Image/red.png");
+		_list_button_file.push_back("Image/blue.png");
 }
+
 
 
 // destructor
@@ -24,6 +28,14 @@ void Database::create_candidates()
 	cand2.set_score(5);
 	cand3.set_score(8);
 
+
+	// add images to each candidat
+	cand1.set_image_button_filePath("Images/green.png");
+	cand2.set_image_button_filePath("Images/red.png");
+	cand3.set_image_button_filePath("Images/blue.png");
+
+
+	// add candidats to list_candidats
 	_list_candidates.push_back(cand1);
 	_number_candidats++;
 	_list_candidates.push_back(cand2);
@@ -37,7 +49,7 @@ void Database::create_candidates()
 // print names of candidates
 void Database::statistic_candidates()
 {
-	list<Candidate>::iterator i;
+	std::list<Candidate>::iterator i;
 
 	std::cout << "---- Statistic candidates ----" << std::endl;
 	for(i=_list_candidates.begin(); i!= _list_candidates.end(); ++i)
@@ -82,8 +94,7 @@ SDL_Texture* Database::loadSurface(Window* screen, std::string filepath)
 	}
 	else
 	{
-		// Convert image/surface to screen format
-		//imageSurface = screen->convert_surface(loadedImage);
+		// create texture from surface object
 		imageSurface = SDL_CreateTextureFromSurface(screen->_renderer, loadedImage);
 
 
@@ -99,6 +110,22 @@ SDL_Texture* Database::loadSurface(Window* screen, std::string filepath)
 	return imageSurface;
 }
 
+
+
+void Database::draw_button(Window* window, std::string filepath, const Button &button)
+{
+
+	button.set_button_image( loadSurface(window, filepath) );
+
+	SDL_Rect position;
+	position.x = button.get_button_x();//*window->get_x_case();
+   	position.y = button.get_button_y();//*window->get_y_case();
+
+   	position.w = BUTTON_WIDTH;
+   	position.h = BUTTON_HEIGHT;//image->h;
+
+	SDL_RenderCopy(window->_renderer, button.get_button_image(), NULL, &position);
+}
 
 
 int Database::get_number_candidats()

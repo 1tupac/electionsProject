@@ -1,5 +1,10 @@
 #pragma once
 #include "button.hh"
+#include <stdlib.h>
+//#include "candidate.hh"
+
+//class Candidate;
+//class Database;
 
 
 class ButtonElection: public Button
@@ -9,7 +14,11 @@ class ButtonElection: public Button
 
 		~ButtonElection();
 
-		// vote for candidat
-		void vote();
+		// handle event of buttonElection
+		int handleEventElectionEl( SDL_Event* e) const;
+		
+		// redirection of equal
+		ButtonElection operator=(const ButtonElection& button) const; 
 
 };
+

@@ -9,9 +9,7 @@
 #include <SDL2/SDL_ttf.h>
 #endif
 #include <string>
-#include "database.hh"
 #include "window.hh"
-
 
 class Window;
 
@@ -29,7 +27,7 @@ enum ButtonSprite
 	BUTTON_SPRITE_TOTAL = 4
 };
 
-class Button: public Database
+class Button//: public Database
 {
 	public:
 
@@ -40,28 +38,34 @@ class Button: public Database
 		// Handles mouse event
 		void handleEvent( SDL_Event* e );
 	
+		// getters
+		float get_button_x() const;
+		float get_button_y() const;
+		Point get_button_pos() const;
+		SDL_Texture* get_button_image() const;
+		ButtonSprite get_mouse_current_sprite() const;
 
+		// setters
+		void set_button_image(SDL_Texture*) const;
 
-		float get_button_x();
-		float get_button_y();
-		
 		// vote for candidat
 		//virtual void vote();
 
-		//void draw_button(Window*, SDL_Texture* image);
-		void draw_button(Window* window, std::string filepath);
+		Button operator=(const Button& button) const; // redirection equal
 
 
 
-	private:
+	protected:
 		//Top left position
 		Point _button_pos;
 
 		//Current used sprite
-		ButtonSprite _mouse_current_sprite;
+		mutable ButtonSprite _mouse_current_sprite;
 	
 		// texture/image of button
-		SDL_Texture* _button_image;
+		mutable SDL_Texture* _button_image;
+
+
 };
 
 

@@ -14,7 +14,7 @@ float Point::get_y() const {
 	return _y;
 }
 
-Point Point::operator=(const Point& p) {
+Point Point::operator=(const Point& p) const{
 	_x = p.get_x();
 	_y = p.get_y();
 	return *this;

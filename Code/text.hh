@@ -29,6 +29,5 @@ private:
 	int _w;
 	int _h;
 	TTF_Font* _font;
-	
 };
 

@@ -66,9 +66,10 @@ int main( int argc, char* args[] )
  				quit = true;
 
 
- 			//Handle button events
- 			bPie.handleEvent( &e );
- 			bBar.handleEvent( &e);
+ 			for(std::list<Candidate>::const_iterator iter = db._list_candidates.begin(), end = db._list_candidates.end(); iter != end; iter++)
+			{
+				(*iter).check_event_click( &e );
+			}
 			
  		}
 
@@ -94,8 +95,8 @@ int main( int argc, char* args[] )
  		window.draw_text(str, p2);
 
  		// draw button
- 		bPie.draw_button(&window, "Images/pieChart.png");
- 		bBar.draw_button(&window, "Images/barChart.png");
+ 		db.draw_button(&window, "Images/pieChart.png", bPie);
+ 		db.draw_button(&window, "Images/barChart.png", bBar);
 
  		textCenter.displayCenteredText(40, "This is a test!");
  		textMoving.displayMovingText(2, "Moving text");

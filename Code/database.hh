@@ -9,10 +9,12 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 #endif
-#include <string>
+
+//#include <string>
 #include "window.hh"
 #include <list>
 #include "candidate.hh"
+#include "button.hh"
 
 
 class Candidate;
@@ -20,13 +22,9 @@ class Candidate;
 class Database
 {
 	protected:
-		//SDL_Surface* _image_chart;
-		//SDL_Surface* _image_button_update;
-		//SDL_Surface* _image_button_reset;
-		//SDL_Surface* _image_text_start;
 
+		std::list<std::string> _list_button_file; // list of all button .png which will be loaded
 
-		std::list<string> list_textOutput;
 		int _number_candidats;
 
 
@@ -37,11 +35,17 @@ class Database
 
 		void statistic_candidates();
 
+		// getters
 		int get_highest_score() const; // returns highest score of all candidats
+		int get_number_candidats();
+
+
+		void draw_button(Window* window, std::string filepath, const Button &button);
 
 		SDL_Texture* loadSurface(Window* screen, std::string filepath);
 
 		std::list<Candidate> _list_candidates; // list of all candidates
-		int get_number_candidats();
+
+
 
 };
