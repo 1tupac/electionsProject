@@ -32,7 +32,7 @@ Window::Window(int h, int w, int x, int y):
 			//_windowSurface = SDL_GetWindowSurface( _window );
 
 			//Create renderer for window
-			_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_ACCELERATED);
+			_renderer = SDL_CreateRenderer(_window, -1, SDL_RENDERER_PRESENTVSYNC);
 			if( _renderer == NULL )
 			{
 				printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );

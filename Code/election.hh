@@ -8,6 +8,8 @@
 #include <SDL2/SDL_ttf.h>
 #endif
 #include <string>
+#include <iostream>
+#include <vector>
 
 #include "window.hh"
 #include "database.hh"
@@ -34,15 +36,14 @@ class Election
 	 	//Button _bPie;
  		Button _bBar;
 
- 		Point _p_text; // point for text print
- 		Text _textCenter;
+ 		//Point _p_text; // point for text print
+ 		Text _textTuto;
  		Text _textMoving;
 
 
 	public:
 		Election();
 		~Election();
-		//void initialise();
 		void run();
 
 };

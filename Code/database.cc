@@ -30,9 +30,9 @@ void Database::create_candidates()
 
 
 	// add images to each candidat
-	cand1.set_image_button_filePath("Images/green.png");
-	cand2.set_image_button_filePath("Images/red.png");
-	cand3.set_image_button_filePath("Images/blue.png");
+	cand1.set_image_button_filePath("Images/b1.png");
+	cand2.set_image_button_filePath("Images/b1.png");
+	cand3.set_image_button_filePath("Images/b1.png");
 
 
 	// add candidats to list_candidats

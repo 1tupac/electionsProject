@@ -42,7 +42,10 @@ void Chart::plotBarChart(Database* db)
 		barRect.y = _y + _h - barRect.h;
 		barRect.w = wOfBar;
 		//std::cout << "i: " << i << "bar - x : " << barRect.x << " y : " << barRect.y << " w : " << barRect.w << " h : " << barRect.h << std::endl;
+		
+		SDL_SetRenderDrawColor(_window->_renderer, 30, 30, 30, SDL_ALPHA_OPAQUE);
 		SDL_RenderFillRect(_window->_renderer, &barRect);
+		SDL_SetRenderDrawColor(_window->_renderer, 240, 240, 240, SDL_ALPHA_OPAQUE);
 
 		// create for each bar a button vote
 		temp_x = barRect.x + barRect.w - 70 - BUTTON_WIDTH/2;

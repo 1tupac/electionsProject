@@ -4,14 +4,14 @@
 
 Election::Election():
 	_window(25,40,21,21), //525 x 840
-	_chart(&(_window), 100, 150, 500, 300),
+	_chart(&(_window), 170, 150, 500, 300),
 	_bBar(Button(750, 150)),
-	_p_text(Point(0.0,0.0)),
-	_textCenter(Text(&(_window), 800, 250, "Font/funnyFont.ttf", 50)),
-	_textMoving(Text(&_window, 800, 250, "Font/funnyFont.ttf", 50))
+	//_p_text(Point(0.0,0.0)),
+	_textTuto(Text(&(_window), 800, 250, "Font/Roboto-Thin.ttf", 20)),
+	_textMoving(Text(&_window, 900, 30, "Font/Roboto-Thin.ttf", 30))
 {
 	 
-	std::cout << "Initialise program" << std::endl;
+	std::cout << "Initialise program\n" << std::endl;
 
 	// load image button on the right side
 	_button = _db.loadSurface(&(_window), "Images/button.png");
@@ -31,31 +31,6 @@ Election::~Election()
 	
 }
 
-/*
-// initialise Election
-void Election::initialise()
-{
-	std::cout << "Initialise program" << std::endl;
-
-	// load image button on the right side
-	_button = _db.loadSurface(&(_window), "Images/button.png");
-
-	// define window for bar chart
-	_chart = Chart(&(_window), 100, 150, 500, 300);
-
-	// define sample text
- 	_text_string = "sample text YEAH!!!!!";
-
- 	// define both buttons on the right side
- 	_bPie = Button(750, 100);
- 	_bBar = Button(750, 150);
-
- 	// define text print
- 	_p_text = Point(0.0,0.0);
-
-}
-*/
-
 // run program
 void Election::run()
 {
@@ -64,6 +39,7 @@ void Election::run()
 
  	// quit flag
  	bool quit = false;
+ 	bool clic = false;
 
  	// event handler
  	SDL_Event e;
@@ -77,6 +53,8 @@ void Election::run()
  			// user requests quit
  			if ( e.type == SDL_QUIT )
  				quit = true;
+ 			if (e.type == SDL_MOUSEBUTTONDOWN)
+	 			clic = true;
 
  			//Handle button events
  			for(std::list<Candidate>::const_iterator iter = _db._list_candidates.begin(), end = _db._list_candidates.end(); iter != end; iter++)
@@ -91,29 +69,34 @@ void Election::run()
  		}
 		
 
- 		SDL_SetRenderDrawColor(_window._renderer, 230, 255, 255, SDL_ALPHA_OPAQUE);
+ 		SDL_SetRenderDrawColor(_window._renderer, 240, 240, 240, SDL_ALPHA_OPAQUE);
  		SDL_RenderClear(_window._renderer);
 
 
  		SDL_SetRenderDrawColor(_window._renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
- 		SDL_RenderDrawLine(_window._renderer, 320, 200, 300, 0);
+ 		//SDL_RenderDrawLine(_window._renderer, 320, 200, 300, 0);
 
  		// plot bar chart
 		_chart.plotBarChart(&(_db));
 
 		// print text
- 		_window.draw_text(_text_string, _p_text);
+ 		//_window.draw_text(_text_string, _p_text);
 
  		// draw buttons on the right side
   		//_db.draw_button(&(_window), "Images/pieChart.png", _bPie);
- 		_db.draw_button(&(_window), "Images/barChart.png", _bBar);
- 		_textCenter.displayCenteredText(40, "This is a test!");
- 		_textMoving.displayMovingText(2, "Moving text");
+ 		//_db.draw_button(&(_window), "Images/barChart.png", _bBar);
+ 		if (!clic)
+ 			_textTuto.displayText(700, 470, "< Clic to vote");
+ 		std::vector<std::string> movingMessages;
+ 		movingMessages.push_back("Princess Leila is doing a press conference");
+ 		movingMessages.push_back("Hercules is in Turkey to see the president");
+ 		movingMessages.push_back("Is Mr. Pink the new black?");
+ 		_textMoving.displayMovingText(2, movingMessages);
 
  		// update screen
  		_window.updateScreen();
 
-		SDL_Delay( 5 );
+		SDL_Delay( 20 );
  	}
 
 }

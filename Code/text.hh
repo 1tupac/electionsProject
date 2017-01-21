@@ -11,6 +11,10 @@
 #endif
 #include <array>
 #include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <random>
 #include "window.hh"
 
 class Text
@@ -20,7 +24,8 @@ public:
 	Text(Window *window, std::string font, int fontSize);
 	~Text();
 	void displayCenteredText(int y, std::string text);
-	void displayMovingText(int speed, std::string text);
+	void displayText(int x, int y, std::string text);
+	void displayMovingText(int speed, std::vector<std::string> text);
 
 private:
 	Window* _window;
@@ -28,6 +33,7 @@ private:
 	int _y;
 	int _w;
 	int _h;
+	int _index;
 	TTF_Font* _font;
 };
 
