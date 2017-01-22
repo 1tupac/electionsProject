@@ -111,19 +111,21 @@ SDL_Texture* Database::loadSurface(Window* screen, std::string filepath)
 
 
 
-void Database::draw_button(Window* window, std::string filepath, const Button &button, int w, int h)
+void Database::draw_button(Window* window, std::string filepath, const Button &button)
 {
 
 	button.set_button_image( loadSurface(window, filepath) );
 
 	SDL_Rect position;
-	position.x = button.get_button_x();//*window->get_x_case();
-   	position.y = button.get_button_y();//*window->get_y_case();
+	
+
+	position.x = button.get_button_x();
+   	position.y = button.get_button_y();
 
    	//position.w = BUTTON_WIDTH;
    	//position.h = BUTTON_HEIGHT;//image->h;
-	position.w = w;
-	position.h = h;
+	position.w = button.get_button_w();
+	position.h = button.get_button_h();
 
 	SDL_RenderCopy(window->_renderer, button.get_button_image(), NULL, &position);
 }

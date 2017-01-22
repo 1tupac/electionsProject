@@ -2,6 +2,7 @@
 
 #include <string>
 #include "buttonElection.hh"
+#include "buttonMode.hh"
 //class ButtonElection;
 
 class Candidate

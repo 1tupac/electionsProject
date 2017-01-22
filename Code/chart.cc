@@ -57,7 +57,9 @@ void Chart::plotBarChart(Database* db)
 		db->draw_button(_window, iter.get_image_button_filePath(), iter.get_button_candidate());
 		//std::cout << "i:" << i << ", button x: " << iter._button_candidate.get_button_x() << " button y: " << iter._button_candidate.get_button_y() << std::endl;
 		i++;
+
 	}
+
 }
 
 Chart Chart::operator=(const Chart& chart) const // redirection equal

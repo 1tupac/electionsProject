@@ -5,10 +5,10 @@
 Election::Election():
 	_window(25,40,21,21), //525 x 840
 	_chart(&(_window), 170, 150, 500, 300),
-	_reset(Button(20, 100)),
-	_regular(Button(20, 200)),
-	_watch(Button(20, 300)),
-	_random(Button(20, 400)),
+	_reset(ButtonMode(20, 100, 70, 70, 0)),
+	_regular(ButtonMode(20, 200, 70, 70, 1)),
+	_watch(ButtonMode(20, 300, 70, 70, 2)),
+	_random(ButtonMode(20, 400, 70, 70, 3)),
 	_textTuto(Text(&(_window), 800, 250, "Font/Roboto-Thin.ttf", 20)),
 	_textMoving(Text(&_window, 900, 30, "Font/Roboto-Thin.ttf", 30))
 {
@@ -67,9 +67,13 @@ void Election::run()
 				//(*iter)._button_candidate.handleEventElectionEl( &e );
 				(*iter).check_event_click( &e );
 			}
+			_reset.handleMode(&e);
+			_regular.handleMode(&e);
+			_watch.handleMode(&e);
+			_random.handleMode(&e);
 			
  		}
-		
+
 
  		SDL_SetRenderDrawColor(_window._renderer, 250, 250, 250, SDL_ALPHA_OPAQUE);
  		SDL_RenderClear(_window._renderer);
@@ -85,12 +89,13 @@ void Election::run()
  		//_window.draw_text(_text_string, _p_text);
 
  		// draw buttons on the right side
- 		_db.draw_button(&(_window), "Images/graph.png", _reset, 70, 70);
- 		_db.draw_button(&(_window), "Images/clock.png", _regular, 70, 70);
- 		_db.draw_button(&(_window), "Images/rocket.png", _watch, 70, 70);
- 		_db.draw_button(&(_window), "Images/brain.png", _random, 70, 70);
+ 		_reset.draw_button(&(_window), "Images/graph.png");
+ 		_regular.draw_button(&(_window), "Images/clock.png");
+ 		_watch.draw_button(&(_window), "Images/rocket.png");
+ 		_random.draw_button(&(_window), "Images/brain.png");
  		if (!clic)
  			_textTuto.displayText(700, 470, "< Clic to vote");
+
  		std::vector<std::string> movingMessages;
  		movingMessages.push_back("Princess Leila is doing a press conference");
  		movingMessages.push_back("Hercules is in Turkey to see the president");

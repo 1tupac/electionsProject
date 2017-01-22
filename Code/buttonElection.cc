@@ -4,12 +4,16 @@ ButtonElection::ButtonElection(float x0, float y0):
 	Button(x0, y0)
 {;}
 
+ButtonElection::ButtonElection(float x0, float y0, int w, int h, int id):
+	Button(x0, y0, w, h, id)
+{;}
+
 ButtonElection::~ButtonElection()
 {;}
 
 
 
-int ButtonElection::handleEvent( SDL_Event* e) const
+int ButtonElection::handleEvent(SDL_Event* e, int bW, int bH) const
 {
 
 	//If mouse event happened
@@ -33,7 +37,7 @@ int ButtonElection::handleEvent( SDL_Event* e) const
 			inside = false;
 		}
 		//Mouse is right of the button
-		else if( x > _button_pos.get_x() + BUTTON_WIDTH )
+		else if( x > _button_pos.get_x() + bW )
 		{
 			inside = false;
 		}
@@ -43,7 +47,7 @@ int ButtonElection::handleEvent( SDL_Event* e) const
 			inside = false;
 		}
 		//Mouse below the button
-		else if( y > _button_pos.get_y() + BUTTON_HEIGHT )
+		else if( y > _button_pos.get_y() + bH )
 		{
 			inside = false;
 		}
@@ -85,13 +89,6 @@ int ButtonElection::handleEvent( SDL_Event* e) const
 	return 0;
 }
 
-void ButtonElection::handleEventMode(SDL_Event* e)
-{
-	if( e->type == SDL_MOUSEMOTION || e->type == SDL_MOUSEBUTTONDOWN || e->type == SDL_MOUSEBUTTONUP )
-	{
-		
-	}
-}
 
 
 ButtonElection ButtonElection::operator=(const ButtonElection& button) const

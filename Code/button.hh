@@ -27,11 +27,12 @@ enum ButtonSprite
 	BUTTON_SPRITE_TOTAL = 4
 };
 
-class Button//: public Database
+class Button
 {
 	public:
 
 		Button(float x0, float y0);
+		Button(float x0, float y0, int w, int h, int id);
 		~Button();
 
 
@@ -42,9 +43,12 @@ class Button//: public Database
 		// getters
 		float get_button_x() const;
 		float get_button_y() const;
+		int get_button_w() const;
+		int get_button_h() const;
 		Point get_button_pos() const;
 		SDL_Texture* get_button_image() const;
 		ButtonSprite get_mouse_current_sprite() const;
+
 
 		// setters
 		void set_button_image(SDL_Texture*) const;
@@ -59,6 +63,10 @@ class Button//: public Database
 	protected:
 		//Top left position
 		Point _button_pos;
+
+		int _wB;
+		int _hB;
+		int _id;
 
 		//Current used sprite
 		mutable ButtonSprite _mouse_current_sprite;

@@ -16,12 +16,15 @@
 #include "chart.hh"
 #include "button.hh"
 #include "text.hh"
+#include "buttonElection.hh"
+#include "buttonMode.hh"
 
 class Button;
 class Window;
 class Database;
 class Chart;
 class Text;
+class ButtonMode;
 
 class Election
 {
@@ -33,10 +36,10 @@ class Election
  		Chart _chart; // bar chart
 	 	std::string _text_string;
 
- 		Button _reset;
- 		Button _regular;
- 		Button _watch;
- 		Button _random;
+ 		ButtonMode _reset;
+ 		ButtonMode _regular;
+ 		ButtonMode _watch;
+ 		ButtonMode _random;
 
  		//Point _p_text; // point for text print
  		Text _textTuto;

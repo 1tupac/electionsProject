@@ -2,7 +2,19 @@
 
 // constructor
 Button::Button(float x0, float y0):
-	_button_pos(x0, y0)
+	_button_pos(x0, y0),
+	_wB(BUTTON_WIDTH),
+	_hB(BUTTON_HEIGHT)
+{
+	_mouse_current_sprite = BUTTON_SPRITE_MOUSE_OUT;
+	_button_image = NULL;
+}
+
+Button::Button(float x0, float y0, int w, int h, int id):
+	_button_pos(x0, y0),
+	_wB(w),
+	_hB(h),
+	_id(id)
 {
 	_mouse_current_sprite = BUTTON_SPRITE_MOUSE_OUT;
 	_button_image = NULL;
@@ -36,6 +48,15 @@ float Button::get_button_y() const
 	return _button_pos.get_y();
 }
 
+int Button::get_button_w() const
+{
+	return _wB;
+}
+
+int Button::get_button_h() const
+{
+	return _hB;
+}
 
 Point Button::get_button_pos() const
 {

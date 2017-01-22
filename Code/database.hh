@@ -14,7 +14,7 @@
 #include "window.hh"
 #include <list>
 #include "candidate.hh"
-#include "button.hh"
+#include "buttonMode.hh"
 
 
 class Candidate;
@@ -40,7 +40,7 @@ class Database
 		int get_number_candidats();
 
 
-		void draw_button(Window* window, std::string filepath, const Button &button, int w=BUTTON_WIDTH, int h=BUTTON_HEIGHT);
+		void draw_button(Window* window, std::string filepath, const Button &button);
 
 		SDL_Texture* loadSurface(Window* screen, std::string filepath);
 

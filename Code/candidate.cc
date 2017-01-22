@@ -54,26 +54,48 @@ std::string Candidate::get_image_button_filePath() const
 
 int Candidate::check_event_click(SDL_Event* e) const
 {
+	int mode = ButtonMode::getMode();
+
 	// if the function handleEventElectionEl returns one, the user clicked on the button
 	if( _button_candidate.handleEvent( e ) == 1 )
 	{
-		int randomNumber = rand() % 3 + 1; // random number between 1,2,3
-		std::cout << "cluck: " << randomNumber << std::endl;
-
-		// TO DO: DECIDE WHAT TO DO WHEN USERS CLICK ON BUTTON
-		switch(randomNumber)
+		switch(mode)
 		{
-			case 1:	this->set_score(this->get_score()*2);
-					std::cout << "double score" << std::endl;
-					break;
+			case 0:
+				this->set_score(0);
+				break;
 
-			case 2: this->set_score(this->get_score()-1);
-					std::cout << "score minus 1" << std::endl;
-					break;
+			case 1:
+				this->set_score(this->get_score()+1);
+				break;
 
-			case 3: this->set_score(rand() % 10 - 1);
-					std::cout << "score is a random number between 0 and 10" << std::endl;
-					break;
+			case 2:
+				this->set_score(this->get_score()+1);
+				break;
+
+			case 3:
+				this->set_score(rand() % 10 + 1);
+				break;
+		}
+
+	} else {
+		switch(mode)
+		{
+			case 0:
+				this->set_score(0);
+				break;
+
+			case 2:
+				if (rand() % 100 < 8)
+				{
+					std::cout << "Enter random" << std::endl;
+					this->set_score(this->get_score() + rand() % 3);
+				}
+				break;
+
+			case 3:
+				//this->set_score(rand() % 10 + 1);
+				break;
 		}
 	}
 
