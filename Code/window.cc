@@ -138,6 +138,34 @@ void Window::draw_text(std::string text, Point pos)
 	SDL_FreeSurface(textSurface);
 }
 
+void Window::windowBackground(int mode)
+{
+	int randColor = 0;
+	if (mode > 1)
+ 		{
+ 			randColor = rand()%5-2;
+ 			switch(rand()%3)
+ 			{
+ 				case 0:
+ 					if (_R+randColor < 250 && _R+randColor > 30)
+ 						_R = _R+randColor;
+ 					break;
+ 				case 1:
+ 					if (_G+randColor < 250 && _G+randColor > 30)
+ 						_G = _G+randColor;
+ 					break;
+ 				case 2:
+ 					if (_B+randColor < 250 && _B+randColor > 30)
+ 						_B = _B+randColor;
+ 					break;
+ 			}
+ 			SDL_SetRenderDrawColor(_renderer, _R, _G, _B, SDL_ALPHA_OPAQUE);
+ 		} else {
+ 			SDL_SetRenderDrawColor(_renderer, 250, 250, 250, SDL_ALPHA_OPAQUE);
+ 		}
+ 		SDL_RenderClear(_renderer);
+ 		SDL_SetRenderDrawColor(_renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+}
 
 std::size_t Window::get_height()
 {

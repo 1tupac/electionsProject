@@ -22,6 +22,10 @@ class Window
 	std::size_t _x_case;	// subdivise window in smaller parts
 	std::size_t _y_case;	// subdivise window in smaller parts like a matrix
 	TTF_Font* _font;
+
+	short int _R = 250;
+ 	short int _G = 250;
+	short int _B = 250;
 	
 
   public:
@@ -41,7 +45,7 @@ class Window
 	void draw_image(SDL_Texture*, Point pos);
 	void updateScreen();
 	void draw_text(std::string text, Point pos);
-	//void draw_button(SDL_Texture*, Button );
+	void windowBackground(int mode);
 
 	std::size_t get_height();
 	std::size_t get_width();

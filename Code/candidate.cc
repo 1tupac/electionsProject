@@ -86,9 +86,8 @@ int Candidate::check_event_click(SDL_Event* e) const
 				break;
 
 			case 2:
-				if (rand() % 100 < 8)
+				if (rand() % 100 < 30)
 				{
-					std::cout << "Enter random" << std::endl;
 					this->set_score(this->get_score() + rand() % 3);
 				}
 				break;

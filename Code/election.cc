@@ -38,7 +38,6 @@ void Election::run()
 {
 	std::cout << "Run program" << std::endl;
 
-
  	// quit flag
  	bool quit = false;
  	bool clic = false;
@@ -62,9 +61,6 @@ void Election::run()
  			for(std::list<Candidate>::const_iterator iter = _db._list_candidates.begin(), end = _db._list_candidates.end(); iter != end; iter++)
 			{
 				// check if user clicks on a button of the candidats
-
-				//(*iter)._button_candidate.handleEventElectionEl( &e, iter );
-				//(*iter)._button_candidate.handleEventElectionEl( &e );
 				(*iter).check_event_click( &e );
 			}
 			_reset.handleMode(&e);
@@ -73,20 +69,10 @@ void Election::run()
 			_random.handleMode(&e);
 			
  		}
-
-
- 		SDL_SetRenderDrawColor(_window._renderer, 250, 250, 250, SDL_ALPHA_OPAQUE);
- 		SDL_RenderClear(_window._renderer);
-
-
- 		SDL_SetRenderDrawColor(_window._renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
- 		//SDL_RenderDrawLine(_window._renderer, 320, 200, 300, 0);
-
+ 		_window.windowBackground(ButtonMode::getMode());
+ 		
  		// plot bar chart
 		_chart.plotBarChart(&(_db));
-
-		// print text
- 		//_window.draw_text(_text_string, _p_text);
 
  		// draw buttons on the right side
  		_reset.draw_button(&(_window), "Images/graph.png");

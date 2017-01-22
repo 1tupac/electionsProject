@@ -41,7 +41,6 @@ class Election
  		ButtonMode _watch;
  		ButtonMode _random;
 
- 		//Point _p_text; // point for text print
  		Text _textTuto;
  		Text _textMoving;
 
